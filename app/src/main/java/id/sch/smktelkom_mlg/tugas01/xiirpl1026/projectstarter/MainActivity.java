@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         String name = etNameProject.getText().toString();
         String detail = etDetailProject.getText().toString();
         String radioresult = null;
-        String checkboxresult = "";
 
         if (rbIn.isChecked()) {
             radioresult = rbIn.getText().toString();
@@ -30,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
             radioresult = rbGr.getText().toString();
         }
 
+        if (radioresult == null) {
+            radioresult = "Type not specified";
+        }
+
+        String checkboxresult = "";
         int startlen = checkboxresult.length();
         if (cbSA.isChecked()) checkboxresult += cbSA.getText() + "\n";
         if (cbSP.isChecked()) checkboxresult += cbSP.getText() + "\n";
@@ -46,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         builder.append(spCategories.getSelectedItem().toString());
         builder.append("\n\nProject type\n");
         builder.append(radioresult);
-        
+        builder.append("\n\nProject intent\n");
+        builder.append(checkboxresult);
 
         tvResult.setText(builder);
     }
