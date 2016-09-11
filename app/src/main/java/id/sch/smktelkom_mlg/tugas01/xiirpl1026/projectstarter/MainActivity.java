@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -12,13 +13,31 @@ public class MainActivity extends AppCompatActivity {
     EditText etNameProject;
     EditText etDetailProject;
     Spinner spCategories;
+    RadioButton rbIn, rbGr;
     TextView tvResult;
 
     private void doClick() {
         String name = etNameProject.getText().toString();
         String detail = etDetailProject.getText().toString();
+        String radioresult = null;
 
-        tvResult.setText("Project " + name + detail);
+        if (rbIn.isChecked()) {
+            radioresult = rbIn.getText().toString();
+        } else if (rbGr.isChecked()) {
+            radioresult = rbGr.getText().toString();
+        }
+
+        StringBuilder builder = new StringBuilder();
+        builder.append("\nProject name\n");
+        builder.append(etNameProject.getText().toString());
+        builder.append("\n\nProject detail\n");
+        builder.append(etDetailProject.getText().toString());
+        builder.append("\n\nProject category\n");
+        builder.append(spCategories.getSelectedItem().toString());
+        builder.append("\n\nProject type\n");
+        builder.append(radioresult);
+
+        tvResult.setText(builder);
     }
 
 
@@ -31,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
         etNameProject = (EditText) findViewById(R.id.editTextName);
         etDetailProject = (EditText) findViewById(R.id.editTextDetail);
         tvResult = (TextView) findViewById(R.id.textViewResult);
+
+        rbIn = (RadioButton) findViewById(R.id.radioButtonIn);
+        rbGr = (RadioButton) findViewById(R.id.radioButtonGr);
+
+
 
         findViewById(R.id.buttonStart).setOnClickListener(new View.OnClickListener() {
             @Override
