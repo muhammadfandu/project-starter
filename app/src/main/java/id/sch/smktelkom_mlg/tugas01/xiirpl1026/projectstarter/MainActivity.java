@@ -26,20 +26,41 @@ public class MainActivity extends AppCompatActivity {
 
         boolean valid = true;
 
+        if (rbIn.isChecked()) {
+            radioresult = rbIn.getText().toString();
+        } else if (rbGr.isChecked()) {
+            radioresult = rbGr.getText().toString();
+        }
+
+        if (radioresult == null) {
+            rbGr.setError("Type not specified");
+            rbIn.setError("Type not specified");
+            valid = false;
+        }
+
+        String checkboxresult = "";
+        int startlen = checkboxresult.length();
+        if (cbSA.isChecked()) checkboxresult += cbSA.getText() + "\n";
+        if (cbSP.isChecked()) checkboxresult += cbSP.getText() + "\n";
+        if (cbFP.isChecked()) checkboxresult += cbFP.getText() + "\n";
+
+        if (checkboxresult.length() == startlen) {
+            cbSA.setError("Project intent not specified");
+            cbSP.setError("Project intent not specified");
+            cbFP.setError("Project intent not specified");
+            valid = false;
+        }
+
         if (name.isEmpty()) {
             etNameProject.setError("Project name not specified");
+            valid = false;
         } else {
             etNameProject.setError(null);
         }
 
         if (detail.isEmpty()) {
-            etNameProject.setError("Project Description not specified");
-        } else {
-            etDetailProject.setError(null);
-        }
-
-        if (name.isEmpty()) {
-            etDetailProject.setError("Project not specified");
+            etDetailProject.setError("Project Description not specified");
+            valid = false;
         } else {
             etDetailProject.setError(null);
         }
