@@ -28,6 +28,15 @@ In this simple application, user will have to input :
 After the user press the start button, a textview will show the detail of the project which the user input.
 If name, description, type or intent input is empty, then the start button will not function, and a corresponding error will be shown in the corresponding input field.
 
+## Screenshots
+![Image of ProjectStarter Home](https://github.com/muhammadfandu/project-starter/blob/master/screenshots/home.png)
+![Image of ProjectStarter Validate](https://github.com/muhammadfandu/project-starter/blob/master/screenshots/validate.png)
+![Image of ProjectStarter Input](https://github.com/muhammadfandu/project-starter/blob/master/screenshots/input.png)
+![Image of ProjectStarter Result](https://github.com/muhammadfandu/project-starter/blob/master/screenshots/result.png)
+
+## GDrive Link
+[Google Drive](https://drive.google.com/file/d/0B7PzuWrOjVW-WnQ0YUMzdEQzS1k/view?usp=sharing)
+
 #### Identity
 Muhammad Pandu Widodo - 
 XII RPL 1 - 
