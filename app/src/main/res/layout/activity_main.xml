@@ -113,7 +113,7 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="What is the project about?"
+            android:text="What is the project intent to?"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <CheckBox
@@ -121,21 +121,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Self Achievement Project" />
+            android:text="Helping people in need" />
 
         <CheckBox
             android:id="@+id/checkBoxSP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="School Project" />
+            android:text="Self Achievement" />
 
         <CheckBox
             android:id="@+id/checkBoxFP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Family Project" />
+            android:text="Society building" />
 
         <Button
             android:id="@+id/buttonStart"

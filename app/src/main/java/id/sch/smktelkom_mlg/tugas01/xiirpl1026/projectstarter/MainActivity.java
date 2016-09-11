@@ -3,6 +3,7 @@ package id.sch.smktelkom_mlg.tugas01.xiirpl1026.projectstarter;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -14,18 +15,27 @@ public class MainActivity extends AppCompatActivity {
     EditText etDetailProject;
     Spinner spCategories;
     RadioButton rbIn, rbGr;
+    CheckBox cbSA, cbSP, cbFP;
     TextView tvResult;
 
     private void doClick() {
         String name = etNameProject.getText().toString();
         String detail = etDetailProject.getText().toString();
         String radioresult = null;
+        String checkboxresult = "";
 
         if (rbIn.isChecked()) {
             radioresult = rbIn.getText().toString();
         } else if (rbGr.isChecked()) {
             radioresult = rbGr.getText().toString();
         }
+
+        int startlen = checkboxresult.length();
+        if (cbSA.isChecked()) checkboxresult += cbSA.getText() + "\n";
+        if (cbSP.isChecked()) checkboxresult += cbSP.getText() + "\n";
+        if (cbFP.isChecked()) checkboxresult += cbFP.getText() + "\n";
+
+        if (checkboxresult.length() == startlen) checkboxresult += "No intent made";
 
         StringBuilder builder = new StringBuilder();
         builder.append("\nProject name\n");
@@ -36,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         builder.append(spCategories.getSelectedItem().toString());
         builder.append("\n\nProject type\n");
         builder.append(radioresult);
+        
 
         tvResult.setText(builder);
     }
@@ -54,7 +65,9 @@ public class MainActivity extends AppCompatActivity {
         rbIn = (RadioButton) findViewById(R.id.radioButtonIn);
         rbGr = (RadioButton) findViewById(R.id.radioButtonGr);
 
-
+        cbSA = (CheckBox) findViewById(R.id.checkBoxSA);
+        cbSP = (CheckBox) findViewById(R.id.checkBoxSP);
+        cbFP = (CheckBox) findViewById(R.id.checkBoxFP);
 
         findViewById(R.id.buttonStart).setOnClickListener(new View.OnClickListener() {
             @Override
