@@ -18,6 +18,35 @@ public class MainActivity extends AppCompatActivity {
     CheckBox cbSA, cbSP, cbFP;
     TextView tvResult;
 
+    private boolean isValid() {
+        String name = etNameProject.getText().toString();
+        String detail = etDetailProject.getText().toString();
+        String spinner = spCategories.getSelectedItem().toString();
+        String radioresult = null;
+
+        boolean valid = true;
+
+        if (name.isEmpty()) {
+            etNameProject.setError("Project name not specified");
+        } else {
+            etNameProject.setError(null);
+        }
+
+        if (detail.isEmpty()) {
+            etNameProject.setError("Project Description not specified");
+        } else {
+            etDetailProject.setError(null);
+        }
+
+        if (name.isEmpty()) {
+            etDetailProject.setError("Project not specified");
+        } else {
+            etDetailProject.setError(null);
+        }
+
+        return valid;
+    }
+
     private void doClick() {
         String name = etNameProject.getText().toString();
         String detail = etDetailProject.getText().toString();
@@ -77,7 +106,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.buttonStart).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                doClick();
+                if (isValid()) {
+                    doClick();
+                }
             }
         });
     }
